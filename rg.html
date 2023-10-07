@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title> DoBu Martial Art </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/e57e6433be.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e57e6433be.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav role="navigation">
+        <img src="images/logo.png" class="logo">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="classes.html">Classes</a>
+            </li>
+            <li><a href="mms.html">Membership Offers</a>
+                <ul class="dropdown">
+                    <li><a href="sandf.html">Specialist courses <br> & fitness training</a></li>
+                  </ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="rg.html">Register</a></li>
+        </ul>
+      </nav>
+        <!--------------------register----------------->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Register</h1>
+                        <p>Contact us to get information about anything related to our services. </p>
+                        <p><i class="fa-solid fa-envelope"></i>contact@example.com</p>
+                        <p><i class="fa-sharp fa-solid fa-phone"></i>0123456789</p>
+            
+                        <div class="scoial-icons">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            
+                        </div>
+
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Name" required>
+                            <input type="text" name="Username" placeholder="Username" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <input type="text" name="Membership" placeholder="Member type" required>
+                            <input type="password" name="Password" placeholder="Password" required>
+                            <input type="password" name="Password" placeholder="Re-Password" required>
+                            <button type="submit" class="btn btn2">Register</button>
+                            <span id="msg"></span>
+                        </form>        
+                    </div>
+            </div>
+            <script>
+                      console.log("msg");
+                      const scriptURL = 'https://script.google.com/macros/s/AKfycbxHj35yFrEA-L54cwqE358qmTgGG8CrXvENmXvBpNGWS72QBMxXW_YE4YB8LTpsGN0u/exec'
+                        const form = document.forms['submit-to-google-sheet']
+                        const msg= document.getElementById("msg")
+
+                        form.addEventListener('submit', e => {
+                            e.preventDefault()
+                            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                            .then(response => {
+                                    msg.innerHTML= "Registered successfully!"
+                                    setTimeout(function(){
+                                        msg.innerHTML = ""
+                                    },3000)
+                                    form.reset()
+                            })
+                            .catch(error => console.error('Error!', error.message))
+                        })
+            </script>
+    </body>
+<!---------------footer-------------->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4> Quick Links </h4>
+                <ul>
+                    <li><a href="aboutus.html">About Us</a></li> 
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="tandc.html">Terms and Conditions</a></li>
+                </ul>     
+            </div>
+            <div class="footer-col">
+                <h4> Social Media </h4>
+                    <div class="scoial-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <P>Copyright © MinTheim made with Visual Studio Code.</P>
+        </div>
+</footer>
+</html>
